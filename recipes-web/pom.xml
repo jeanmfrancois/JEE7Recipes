@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <name>Java EE 7 Recipes - WEB</name>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>recipes-web</artifactId>
+  <packaging>war</packaging>
+  <url>http://jfbuilds.com</url>
+  <parent>
+    <groupId>com.jfbuilds.jee7</groupId>
+    <artifactId>recipes</artifactId>
+    <version>1.0</version>
+  </parent>
+  
+  <dependencies>
+    <dependency>
+         <groupId>com.jfbuilds.jee7</groupId>
+         <artifactId>recipes-ejb</artifactId>
+         <type>ejb</type>
+         <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>${version.primefaces.plugin}</version>	
+    </dependency>
+    <dependency>
+        <groupId>org.primefaces.themes</groupId>
+        <artifactId>hot-sneaks</artifactId>
+        <version>${version.primefaces.theme.plugin}</version>
+    </dependency>	
+  </dependencies>
+
+  <build>
+      <finalName>${project.artifactId}</finalName>
+      <plugins>
+         <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>${version.war.plugin}</version>
+            <configuration>
+               <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
+               <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+</project>

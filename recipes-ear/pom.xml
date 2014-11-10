@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    <name>Java EE 7 Recipes - EAR</name>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>recipes-ear</artifactId>
+    <packaging>ear</packaging>
+    <url>http://jfbuilds.com</url>
+    <parent>
+        <artifactId>recipes</artifactId>
+        <groupId>com.jfbuilds.jee7</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jfbuilds.jee7</groupId>
+            <artifactId>recipes-web</artifactId>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.jfbuilds.jee7</groupId>
+            <artifactId>recipes-ejb</artifactId>     
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.ear.plugin}</version>
+                <configuration>
+                    <version>7</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                    <webModule>
+                        <groupId>com.jfbuilds.recipes</groupId>
+                        <artifactId>recipes-web</artifactId>
+                        <contextRoot>/myrecipes</contextRoot>
+                    </webModule>
+                    </modules>
+                    <fileNameMapping>no-version</fileNameMapping>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+   
+    <profiles>
+        <profile>
+            <id>glassfish</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-ear-plugin</artifactId>
+                        <version>${version.ear.plugin}</version>
+                        <configuration>
+                            <outputDirectory>C:\glassfish4\glassfish\domains\jmx\autodeploy</outputDirectory>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

@@ -1,0 +1,89 @@
+# Compiled Files
+*.class
+
+# Bin directory in any folder vs /bin/ (root bin folder) vs
+# /*/bin/ (root children bin folders) vs
+# /*/*/bin (grandchildren) X
+*bin*
+
+# Android Studio settings
+/.idea*
+
+
+# Target directory in any folder vs /target/ (root target
+# folder) vs /*/target/ (root children target folders) vs
+# /*/*/target (grandchildren) X
+*target*
+
+
+# Mobile Tools for Java (J2ME)
+
+.mtj.tmp/
+
+
+
+# Package Files #
+
+*.jar
+
+*.war
+
+*.ear
+
+
+
+# MAC Specific Directory Info
+
+*.DS_Store
+
+
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+
+hs_err_pid*
+
+
+
+# RemoteSystemsTempFiles
+
+RemoteSystemsTempFiles/*
+
+
+
+# Eclipse Settings
+
+.metadata/*
+*.metadata*
+
+
+# Eclipse Project's Classpath Info
+
+*/.classpath
+*.classpath*
+
+
+
+# Eclipse Project's Details
+
+*/.project
+*.project*
+
+
+
+# Eclipse Project's Settings
+
+*/.settings
+
+
+*.settings*
+
+# Temp Save Generated Files
+~
+*.xlsx
+
+
+
+# Log Files
+
+*.log
+
